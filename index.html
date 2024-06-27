@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Big Burguer</title>
+    <link rel="stylesheet" href="./styles/outout.css" />
+  </head>
+  <body>
+    <header class="w-full h-[420px] bg-zinc-900 bg-home bg-cover bg-center">
+      <div class="w-full h-full flex flex-col justify-center items-center">
+        <img
+          src="./assets/brunoo.png"
+          alt="Logo devBurguer"
+          class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200"
+        />
+
+        <h1 class="text-4xl mt-4 mb-2 font-bold text-white">Big Burguer</h1>
+
+        <span class="text-white font-medium"
+          >Fazendinha - 1036, Ipaumirim - CE</span
+        >
+
+        <div class="bg-green-600 px-4 py-1 rounded-lg mt-5" id="data-span">
+          <span class="text-white font-medium"
+            >Terça á Domingo - 18:30 as 22:30</span
+          >
+        </div>
+      </div>
+    </header>
+
+    <!--  INICIO DA PARTE DOS LINKS DOS PEDIOS -->
+    <div
+      class="w-full bg-red-500 py-3 fixed top-0 flex items-center justify-center"
+    >
+      <div class="gap-4 flex justify-between">
+        <a href="#menu" class="font-medium text-white">BURGUER </a>
+        <a href="#bebidass" class="font-medium text-white">BEBIDAS </a>
+        <a href="#sucoss" class="font-medium text-white">SUCOS </a>
+        <a href="#porcao" class="font-medium text-white">PORÇÕES </a>
+        <a href="#addi" class="font-medium text-white">ADICIONAIS </a>
+      </div>
+    </div>
+    <!--  FIM DA PARTE DOS LINKS DOS PEDIOS -->
+
+    <!-- TESTE
+    
+
+          <section 
+        id="add-ons" 
+        class="hidden w-1.5 py-3 items-center justify-center bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px] fixed top-0
+        "
+                 > 
+            <h2 class="grid justify-center items-center font-bold p-5 ">ESCOLHA SEUS ADICIONAIS</h2>
+
+            <form 
+            class="grid grid-rows-2 sm:grid-rows-1 gap-1 md:gap-2 mx-auto px-2 mb-6 justify-self-stretch items-baseline "
+            id="add-ons-form " 
+            > 
+                <input type="checkbox" name="addon" value="Molho especial" data-price="2.00"> Molho especial (R$2,00)
+                <input type="checkbox" name="addon" value="Maionese Verde" data-price="2.00"> Maionese Verde (R$2,00)
+                <input type="checkbox" name="addon" value="Blend" data-price="7.00"> Blend (R$7,00)
+                <input type="checkbox" name="addon" value="Bacon" data-price="4.00"> Bacon (R$4,00)
+                <input type="checkbox" name="addon" value="Cebola Caramelizada" data-price="4.00"> Cebola Caramelizada (R$4,00)
+                <input type="checkbox" name="addon" value="Geleia de pimenta" data-price="3.00"> Geleia de pimenta (R$3.00)
+                <input type="checkbox" name="addon" value="Anéis de Cebola Empanados" data-price="4.00"> Anéis de Cebola Empanados (R$4,00)
+                <input type="checkbox" name="addon" value="Doritos" data-price="2.00"> Doritos (R$2,00)
+                <input type="checkbox" name="addon" value="Calabresa" data-price="3.00"> Calabresa (R$3,00)                                
+                <button type="button" onclick="addBurger()" class="bg-green-500 text-white px-4 py-1 rounded">Adicionar ao Pedido</button>
+                <button type="button" onclick="hideAddOns()" class="bg-red-500 text-white px-4 py-1 rounded">Cancelar</button>
+            </form>
+        </section>
+
+
+  final-->
+
+    <!--COMEÇOR DA PARTE DOS ADICIONAIS-->
+    <section
+      id="add-ons"
+      class="hidden w-1.5 py-3 items-center justify-center bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px] fixed top-0"
+    >
+      <h2 class="grid justify-center items-center mb-5">
+        Escolha seus adicionais
+      </h2>
+
+      <form
+        class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 mx-auto max-w-7xl px-2 mb-16 rounded-md min-w-[90%] md:min-w-[600px]"
+        id="add-ons-form"
+      >
+        <input
+          type="checkbox"
+          name="addon"
+          value="Molho especial"
+          data-price="2.00"
+        />
+        Molho especial (R$2,00)
+        <input
+          type="checkbox"
+          name="addon"
+          value="Maionese Verde"
+          data-price="2.00"
+        />
+
+        Maionese Verde (R$2,00)
+        <input type="checkbox" name="addon" value="Blend" data-price="7.00" />
+        Blend (R$7,00)
+        <input type="checkbox" name="addon" value="Bacon" data-price="4.00" />
+        Bacon (R$4,00)
+        <input
+          type="checkbox"
+          name="addon"
+          value="Cebola Caramelizada"
+          data-price="4.00"
+        />
+        Cebola Caramelizada (R$4,00)
+        <input
+          type="checkbox"
+          name="addon"
+          value="Geleia de pimenta"
+          data-price="3.00"
+        />
+        Geleia de pimenta (R$3.00)
+        <input
+          type="checkbox"
+          name="addon"
+          value="Anéis de Cebola Empanados"
+          data-price="4.00"
+        />
+        Anéis de Cebola Empanados (R$4,00)
+        <input type="checkbox" name="addon" value="Doritos" data-price="2.00" />
+        Doritos (R$2,00)
+        <input
+          type="checkbox"
+          name="addon"
+          value="Calabresa"
+          data-price="3.00"
+        />
+        Calabresa (R$3,00)
+        <button
+          type="button"
+          onclick="addBurger()"
+          class="bg-green-500 text-white px-4 py-1 rounded"
+        >
+          Adicionar ao Pedido
+        </button>
+        <button
+          type="button"
+          onclick="hideAddOns()"
+          class="bg-red-500 text-white px-4 py-1 rounded"
+        >
+          Cancelar
+        </button>
+      </form>
+    </section>
+    <!--FIM DA PARTE DOS ADICIONAIS    -->
+
+    <!--  ORIGINAL        
+        <section 
+        id="add-ons" 
+        class="hidden w-1.5 py-3 items-center justify-center bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px] fixed top-0
+        "
+                 >
+            <h2 class="grid justify-center items-center mb-5">Escolha seus adicionais</h2>
+            
+            <form 
+            class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 mx-auto max-w-7xl px-2 mb-16"
+            id="add-ons-form" 
+            >
+                <input type="checkbox" name="addon" value="Molho especial" data-price="2.00"> Molho especial (R$2,00)
+                <input type="checkbox" name="addon" value="Maionese Verde" data-price="2.00"> Maionese Verde (R$2,00)
+                <input type="checkbox" name="addon" value="Blend" data-price="7.00"> Blend (R$7,00)
+                <input type="checkbox" name="addon" value="Bacon" data-price="4.00"> Bacon (R$4,00)
+                <input type="checkbox" name="addon" value="Cebola Caramelizada" data-price="4.00"> Cebola Caramelizada (R$4,00)
+                <input type="checkbox" name="addon" value="Geleia de pimenta" data-price="3.00"> Geleia de pimenta (R$3.00)
+                <input type="checkbox" name="addon" value="Anéis de Cebola Empanados" data-price="4.00"> Anéis de Cebola Empanados (R$4,00)
+                <input type="checkbox" name="addon" value="Doritos" data-price="2.00"> Doritos (R$2,00)
+                <input type="checkbox" name="addon" value="Calabresa" data-price="3.00"> Calabresa (R$3,00)                                
+                <button type="button" onclick="addBurger()">Adicionar ao Pedido</button>
+                <button type="button" onclick="hideAddOns()">Cancelar</button>
+            </form>
+        </section>
+        -->
+
+    <h2 class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6">
+      Conheça nosso Menu
+    </h2>
+
+    <!--INICIO DO MEU MENU-->
+    <div id="menu">
+      <main
+        class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16"
+      >
+        <!--"class="hidden  w-1.5 py-3 items-center justify-center bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px] fixed top-0    e troca esse "fixed" por "absolute"-->
+
+        <!--INICIO DOS BURGUER      ( 1 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">1 - Tradicional</p>
+            <p class="text-sm">
+              Pão brioche, Blend “Fraldinha”130G, Queijo Mussarela,
+              Tomate, Alface, Cebola roxa e Molho especial."
+            </p>
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 16.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Tradicional', 16.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 1 )-->
+
+        <!--INICIO DOS BURGUER      ( 2 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">2 - Texas</p>
+            <p class="text-sm">
+              Pão brioche, Blend “Fraldinha” 130G, Dois Queijo, Cebola
+              roxa e a Maionese do BRUNAO."
+            </p>
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 16.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Texas', 16.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 2 )-->
+
+        <!--INICIO DOS BURGUER      ( 3 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">3 - Burguer Calabresa</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha”130G, Queijo Mussarela,
+              Tomate, Alface, Calabresa, Cebola Roxa, Molho Especial.
+            </p>
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 18.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Burguer Calabresa', 18.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 3 )-->
+
+        <!--INICIO DOS BURGUER      ( 4 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">4 - Costela</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 130G, Queijo Mussarela,
+              Tomate, Cebola Caramelizada, Molho Barbecue ou Molho Especial.
+            </p>
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 19.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Costela', 19.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 4 )-->
+
+        <!--INICIO DOS BURGUER      ( 5 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">5 - Frita Cubana</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 130G, Queijo Mussarela,
+              Queijo Cheddar, Tomate, Alface, Cebola Roxa, Maionese Verde e
+              Batata Palha.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 19.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Frita Cubana', 19.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER        ( 5  )-->
+
+        <!--INICIO DOS BURGUER      ( 6 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">6 - Toscana</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 130G, Queijo Mussarela,
+              Ovo, Tomate, Alface, Cebola Roxa, Molho Barbecue ou Especial.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 20.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Toscana', 20.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER        ( 6  )-->
+
+        <!--INICIO DOS BURGUER      ( 7 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">7 - Alagoinha</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 130G, Queijo Cheddar,
+              Tomate, Alface, Dois Ovos, Cebola Roxa e Molho Especial.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 20.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Alagoinha', 20.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 7 )-->
+
+        <!--INICIO DOS BURGUER      ( 8 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">8 - Nachos Burguer</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 130G, Queijo Cheddar, Bacon
+              Crocante, Cebola Roxa, Doritos e Molho Especial.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 20.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Nachos Burguer', 20.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 8 )-->
+
+        <!--INICIO DOS BURGUER      ( 9 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">9 - Queijudo</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 130G, Queijo Cheddar,
+              Queijo Mussarela, Queijo Coalho, Catupiry, Cebola Caramelizada e
+              Molho Especial.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 21.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Queijudo', 21.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 9 )-->
+
+        <!--INICIO DOS BURGUER      ( 10 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">10 - Crush</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 130G, Queijo Mussarela,
+              calabresa, Ovo, Geleia de Pimenta, Tomate, Alface, Cebola Roxa e
+              Molho Especial.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 22.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Crush', 22.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 10 )-->
+
+        <!--INICIO DOS BURGUER      ( 11 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">11 - Esplêndido</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 130G, Vinagrete a Base de
+              Limão, Abacaxi Caramelizado, Duas Fatias de Queijo Cheddar e Molho
+              Especial.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 22.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Esplêndido', 22.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 11 )-->
+
+        <!--INICIO DOS BURGUER      ( 12 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full border-s-red-950">
+            <p class="font-bold">12 - Black Burguer</p>
+            <p class="text-sm">
+              Pão Black Carvão, Blend “Fraldinha” 150G,
+              molhozinho especial do Brunão, Geleia de abacaxi, Bacon em cubos,
+              Queijo cheddar, alface, tomate e cebola roxa.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 22.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Esplêndido', 22.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 12 )-->        
+
+        <!--INICIO DOS BURGUER      ( 13 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">13 - Onion Rings</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 130G, Anés de Cebola
+              Empanados, Queijo Mussarela, Creme Cheddar, Bacon Crocante, Geleia
+              de Pimenta e Molho Especial.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 23.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Onion Rings', 23.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 13 )-->
+
+        <!--INICIO DOS BURGUER      ( 14 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">14 - Seringa de Cheddar</p>
+            <p class="text-sm">
+              Pão Brioche, Dois Blend “Fraldinha” 130G, Queijo Mussarela,
+              Bacon Crocante e Cheddar na Seringa.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 24.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Seringa de Cheddar', 24.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 14 )-->
+
+        <!--INICIO DOS BURGUER      ( 15 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">15 - Batatinha Burguer</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 130G, Queijo Mussarela,
+              Bacon Crocante, Creme Cheddar, Batata Frita, Tomate, Alface,
+              Cebola Roxa e Molho Especial.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 25.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Batatinha Burguer', 25.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 15 )-->
+
+        <!--INICIO DOS BURGUER      ( 16 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">16 - Grande Big</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 130G, Queijo Mussarela,
+              Bacon Crocante, Tomate, Alface, Presunto, Queijo Coalho,
+              Calabresa, Ovo, Cebola Roxa, Geleria de Pimenta, Molho Especial.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 25.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Grande Big', 25.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 16 )-->
+
+        <!--INICIO DOS BURGUER      ( 17 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">17 - Cheddar Duplo</p>
+            <p class="text-sm">
+              Pão Brioche, Dois Blend “Fraldinha” 130G, Dois Queijo,
+              Bacon Crocante, Molho Barbecue ou Especial e Cebola Caramelizada.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 27.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Cheddar Duplo', 27.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 17 )-->
+
+        <!--INICIO DOS BURGUER      ( 18 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">18 - Arretadinho</p>
+            <p class="text-sm">
+              Pão American Bred, Blend “Fraldinha” 130G, Queijo Cheddar,
+              Queijo Coalho, Mel de Abelha, Bacon Crocante, Carne de Sol
+              refogada na manteiga da terra e maionese verde.
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 28.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Arretadinho', 28.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 18 )-->
+
+        <!--INICIO DOS BURGUER      ( 19 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">19 - Piscina de Cheddar</p>
+            <p class="text-sm">
+              Pão Brioche, Blend “Fraldinha” 150G, Bacon, Queijo Cheddar
+              Fatiado, Molho Barbecue ou Especial e Molho Cremoso de Cheddar +
+              (PORÇÃO DE BATATA P).
+            </p>
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 32.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded"
+                onclick="showAddOns('Piscina de Cheddar', 32.00)"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--fim DOS BURGUER         ( 19 )-->
+      </main>
+
+      <!--INICO DE BEBIDAS-->
+
+      <!--COMEÇOR DE BEBIDAS-->
+      <div class="mx-auto max-w-7xl px-2 my-2">
+        <h2
+          id="bebidass"
+          class="font-bold text-3xl flex items-center justify-center mb-16"
+        >
+          BEBIDAS
+        </h2>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16"
+        id="menu"
+      >
+        <!-- AQI COMEÇA AS BEBIDAS-->
+
+        <!--INICIO DOS BEBIDAS      ( 1 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Cajuína 1 Litro</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 8.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="CAJUINA"
+                data-price="8.00"
+                onclick="addToCart('CAJUINA 1 LITRO', 8.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   BEBIDAS       ( 1 )-->
+
+        <!--INICIO DOS BEBIDAS      ( 2 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Guaraná 1 Litro</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 8.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="CAJUINA"
+                data-price="6.00"
+                onclick="addToCart('Guaraná', 8.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   BEBIDAS       ( 2 )-->
+
+        <!--INICIO DOS BEBIDAS      ( 3 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Coca-Cola 1 Litro</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 8.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="CAJUINA"
+                data-price="6.00"
+                onclick="addToCart('Coca-Cola 1 Litro', 8.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   BEBIDAS       ( 3 )-->
+
+        <!--INICIO DOS BEBIDAS      ( 4 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Cajuína Lata</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 6.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="CAJUINA"
+                data-price="6.00"
+                onclick="addToCart('CAJUÍNA LATA', 10.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   BEBIDAS       ( 4 )-->
+
+        <!--INICIO DOS BEBIDAS      ( 5 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Coca-Cola lata</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 6.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="CAJUINA"
+                data-price="6.00"
+                onclick="addToCart('Coca-cola Lata', 6.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   BEBIDAS       ( 5 )-->
+
+        <!--INICIO DOS BEBIDAS      ( 5 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Fanta lata</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 5.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="CAJUINA"
+                data-price="6.00"
+                onclick="addToCart('Fanta Lata', 5.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   BEBIDAS       ( 5 )-->
+
+        <!--INICIO DOS BEBIDAS      ( 6 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Schweppes lata</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 6.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="CAJUINA"
+                data-price="6.00"
+                onclick="addToCart('Schweppes Lata', 6.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   BEBIDAS       ( 6 )-->
+
+        <!--INICIO DOS BEBIDAS      ( 7 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Água Mineral</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 2.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="CAJUINA"
+                data-price="2.00"
+                onclick="addToCart('Água Mineral', 2.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   BEBIDAS       ( 7 )-->
+
+        <!--INICIO DOS BEBIDAS      ( 8 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Água Mineral ( COM GáS )</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 3.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="CAJUINA"
+                data-price="3.00"
+                onclick="addToCart('Água Mineral ( COM GÁS )', 3.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   BEBIDAS       ( 8 )-->
+      </div>
+      <!--FIM DE BEBIDAS    -->
+
+      <!-- AQI COMEÇA OS SUCOS-->
+      <div class="mx-auto max-w-7xl px-2 my-2">
+        <h2
+          id="sucoss"
+          class="font-bold text-3xl flex items-center justify-center mb-16"
+        >
+          SUCOS:
+        </h2>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16"
+        id="menu"
+      >
+        <!--INICIO DOS SUCOS      ( 1 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Maracujá</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 6.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Maracujá"
+                data-price="6.00"
+                onclick="addToCart('Suco de Maracujá', 6.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   SUCOS       ( 1 )-->
+
+        <!--INICIO DOS SUCOS      ( 2 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Cajá</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 6.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Cajá"
+                data-price="6.00"
+                onclick="addToCart('Suco de Cajá', 6.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   SUCOS       ( 2 )-->
+
+        <!--INICIO DOS SUCOS      ( 3 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Acerola</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 6.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Acerola"
+                data-price="6.00"
+                onclick="addToCart('Suco de Acerola', 6.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   SUCOS       ( 3 )-->
+
+        <!--INICIO DOS SUCOS      ( 4 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Abacaxi</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 6.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Abacaxi"
+                data-price="6.00"
+                onclick="addToCart('Suco de Abacaxi', 6.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   SUCOS       ( 4 )-->
+
+        <!--INICIO DOS SUCOS      ( 5 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Uva</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 6.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Uva"
+                data-price="6.00"
+                onclick="addToCart('Suco de Uva', 6.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   SUCOS       ( 5 )-->
+
+        <!--INICIO DOS SUCOS      ( 6 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">Laranja</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 6.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Laranja"
+                data-price="6.00"
+                onclick="addToCart('Suco de Laranja', 6.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   SUCOS       ( 6 )-->
+      </div>
+      <!-- FIM DO SUCOS    -->
+
+      <!--INICIO DAS PORÇOES-->
+      <div class="mx-auto max-w-7xl px-2 my-2">
+        <h2
+          id="porcao"
+          class="font-bold text-3xl flex items-center justify-center mb-16"
+        >
+          Porções
+        </h2>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16"
+        id="menu"
+      >
+        <!--INICIO DOS PORÇÕES      ( 1 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">BATATA P</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 8.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Batata P"
+                data-price="8.00"
+                onclick="addToCart('Batata P', 8.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   PORÇÕES       ( 1 )-->
+
+        <!--INICIO DOS PORÇÕES      ( 2 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">BATATA G</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 15.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Batata G"
+                data-price="15.00"
+                onclick="addToCart('Batata G', 15.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   PORÇÕES       ( 2 )-->
+
+        <!--INICIO DOS PORÇÕES      ( 3 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">BATATA ESPECIAL</p>
+            <p class="font-bold"> Cheddar e Bacon </p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 20.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Batata Especial"
+                data-price="20.00"
+                onclick="addToCart('Batata Especial', 20.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   PORÇÕES       ( 3 )-->
+
+        <!--INICIO DOS PORÇÕES      ( 4 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">BATATA RECHEADA</p>
+            <p class="font-bold">Batata Recheada com molho 4 queijo, carne de sol desfiada e cebolinha verde</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 23.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Batata Especial"
+                data-price="20.00"
+                onclick="addToCart('Batata Recheada', 23.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   PORÇÕES       ( 4 )-->
+
+        <!--INICIO DOS PORÇÕES      ( 5 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">ANÉIS DE CEBOLA</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 15.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Anéis de Cebola"
+                data-price="15.00"
+                onclick="addToCart('Anéis de Cebola', 15.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   PORÇÕES       ( 5 )-->
+
+        <!--INICIO DOS PORÇÕES      ( 6 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">MINI COXINHAS "COM MASSA DE BATATA"</p>
+            <p>( 10 UNIDADES )</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 16.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="MINI COXINHAS"
+                data-price="16.00"
+                onclick="addToCart('MINI COXINHAS', 16.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   PORÇÕES       ( 6 )-->
+      </div>
+      <!--FIM DAS PORÇÕES-->
+
+      <!--INICIO DAS Adicionais-->
+      <div class="mx-auto max-w-7xl px-2 my-2">
+        <h2
+          id="addi"
+          class="font-bold text-3xl flex items-center justify-center mb-16"
+        >
+          ADICIONAIS:
+        </h2>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16"
+        id="menu"
+      >
+        <!--INICIO DOS ADICIONAIS      ( 1 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">BLEND "FRAUDINHA 130G" :</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="text-zinc-800 text-lg">R$ 7.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Blend"
+                data-price="7.00"
+                onclick="addToCart('Blend', 7.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   ADICIONAIS       ( 1 )-->
+
+        <!--INICIO DOS ADICIONAIS      ( 2 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">MOLHO ESPECIAL:</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="text-zinc-800 text-lg">R$ 2.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Molho Especial"
+                data-price="2.00"
+                onclick="addToCart('Molho Especial', 2.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   ADICIONAIS       ( 2 )-->
+
+        <!--INICIO DOS ADICIONAIS      ( 3 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">MAIONESE VERDE:</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="text-zinc-800 text-lg">R$ 2.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Maionese Verde"
+                data-price="2.00"
+                onclick="addToCart('Maionese Verde', 2.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   ADICIONAIS       ( 3 )-->
+
+        <!--INICIO DOS ADICIONAIS      ( 4 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">CEBOLA CARAMELIZADA:</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="text-zinc-800 text-lg">R$ 4.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Cebola Caramelizada"
+                data-price="4.00"
+                onclick="addToCart('Cebola Caramelizada', 4.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   ADICIONAIS       ( 4 )-->
+
+        <!--INICIO DOS ADICIONAIS      ( 5 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">BACON CROCANTE:</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="text-zinc-800 text-lg">R$ 4.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Bacon Crocante"
+                data-price="4.00"
+                onclick="addToCart('Bacon Crocante', 4.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   ADICIONAIS       ( 5 )-->
+
+        <!--INICIO DOS ADICIONAIS      ( 6 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">OVO:</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="text-zinc-800 text-lg">R$ 2.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Ovo"
+                data-price="2.00"
+                onclick="addToCart('Ovo', 2.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   ADICIONAIS       ( 6 )-->
+
+        <!--INICIO DOS ADICIONAIS      ( 7 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">GELEIRA DE PIMENTA:</p>
+            <br />
+
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 3.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="geleia de Pimenta"
+                data-price="3.00"
+                onclick="addToCart('geleia de Pimenta', 3.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   ADICIONAIS       ( 7 )-->
+
+        <!--INICIO DOS ADICIONAIS      ( 8 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">ANÉIS DE CEBOLA EMPANADOS:</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="text-zinc-800 text-lg">R$ 4.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Anéis de Cebola empanados"
+                data-price="4.00"
+                onclick="addToCart('Anéis de Cebola empanados', 4.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   ADICIONAIS       ( 8 )-->
+
+        <!--INICIO DOS ADICIONAIS      ( 9 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">DORITOS:</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="text-zinc-800 text-lg">R$ 2.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Doritos"
+                data-price="2.00"
+                onclick="addToCart('Doritos', 2.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   ADICIONAIS       ( 9 )-->
+
+        <!--INICIO DOS ADICIONAIS      ( 10 )-->
+        <section class="flex gap-2 burger">
+          <div class="w-full">
+            <p class="font-bold">CALABRESA:</p>
+            <br />
+            <div class="burger flex items-center gap-2 justify-between mt-3">
+              <p class="">R$ 3.00</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Calabresa"
+                data-price="3.00"
+                onclick="addToCart('Calabresa', 3.00, [])"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <!--FIM DOS   ADICIONAIS       ( 10 )-->
+      </div>
+      <!--FIM DAS PORÇÕES-->
+
+      <!--INICIO DO MODAL         -->
+      <div
+        id="cart-modal"
+        class="bg-black/90 w-full h-full fixed top-0 right-0 left-0 z-[99] items-center justify-center overflow-scroll hidden"
+      >
+        <div
+          class="modal-content grid grid-cols-2 md:grid-cols-1 bg-white p-5 rounded-md min-w-[100%] md:min-w-[600px]"
+        >
+          <h2 class="flex">Meu Carrinho</h2>
+          <div id="cart-items"></div>
+          <p class="font-bold">Total: <span id="cart-total">R$0.00</span></p>
+          <input
+            type="text"
+            id="address"
+            placeholder="Digite seu endereço completo..."
+            class="w-full border-2 p-1 rounder my-1"
+          />
+          <p id="address-warn" class="text-red-500 hidden">
+            Digite seu endereço completo!
+          </p>
+          <div class="flex items-center justify-between mt-5 w-full">
+            <button
+              id="checkout-btn"
+              class="bg-green-500 text-white px-4 py-1 rounded"
+            >
+              Finalizar Pedido
+            </button>
+            <button
+              id="close-modal-btn"
+              class="bg-red-500 text-white px-4 py-1 rounded"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--FIM DO MODAL            -->
+
+      <ul id="order-list"></ul>
+
+      <footer
+        class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center"
+      >
+        <section id="order">
+          <ul id="order-list"></ul>
+          <button
+            class="flex items-center gap-2 text-white font-bold"
+            id="cart-btn"
+          >
+            (<span id="cart-count">0</span>) veja meu carrinho
+            <i class="fa fa-cart-plus text-lg text-white"></i>
+          </button>
+        </section>
+      </footer>
+    </div>
+    <!--FIM DO MEU MENU   -->
+    <script src="script.js"></script>
+  </body>
+</html>
